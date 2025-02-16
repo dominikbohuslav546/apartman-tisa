@@ -1,3 +1,7 @@
+html, body {
+  overflow-x: hidden;
+}
+
 html {
   height: 100%;
 }
@@ -20,14 +24,10 @@ ul {
   }
   .header-heading {
     margin-left: 20px;
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 1s ease-out, transform 1s ease-out;
   }
 
-  .header.visible {
-    opacity: 1;
-    transform: translateY(0);
+.img-heading {
+  border-radius: 5px;
 }
 
   .background-heading {
@@ -522,12 +522,13 @@ table {
   padding: 50px;
 }
 
-
 .gallery-preview img {
   width: 100%;
   height: auto;
   cursor: pointer;
+  border-radius: 5px;
 }
+
 .lightbox {
   display: none;
   position: fixed;
@@ -538,11 +539,15 @@ table {
   background: rgba(0, 0, 0, 0.8);
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
+
 .lightbox img {
   max-width: 90%;
   max-height: 80%;
+  transition: opacity 0.3s ease-in-out;
 }
+
 .close {
   position: absolute;
   top: 20px;
@@ -551,6 +556,7 @@ table {
   color: white;
   cursor: pointer;
 }
+
 .prev, .next {
   position: absolute;
   top: 50%;
@@ -559,6 +565,20 @@ table {
   color: white;
   cursor: pointer;
   padding: 10px;
+  user-select: none;
 }
+
 .prev { left: 20px; }
 .next { right: 20px; }
+.caption {
+  color: white;
+  text-align: center;
+  margin-top: 10px;
+  font-size: 16px;
+}
+
+@media (max-width: 600px) {
+  .gallery-preview img {
+      max-width: 100px;
+  }
+}

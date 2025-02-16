@@ -33,20 +33,20 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelector(".close").addEventListener("click", closeLightbox);
     document.querySelector(".prev").addEventListener("click", () => changeSlide(-1));
     document.querySelector(".next").addEventListener("click", () => changeSlide(1));
-});
 
-document.addEventListener("DOMContentLoaded", function () {
-    const grids = document.querySelectorAll(".header");
+    // Close the lightbox when clicking outside of the image (on the background)
+    lightbox.addEventListener('click', function(event) {
+        if (event.target === lightbox) {
+            closeLightbox();
+        }
+    });
 
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add("visible");
-            }
-        });
-    }, { threshold: 0.2 });
-
-    grids.forEach(grid => observer.observe(grid));
+    // Close the lightbox when pressing the Escape key
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape') {
+            closeLightbox();
+        }
+    });
 });
 
 document.addEventListener("DOMContentLoaded", function () {

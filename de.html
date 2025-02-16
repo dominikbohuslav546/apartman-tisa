@@ -11,6 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap" rel="stylesheet">
+  <script src="index.js"></script> 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-4X5HTGMP0V"></script>
   <script>
@@ -164,29 +165,27 @@
             </div>
           </div>
         </div>
+      
+
         <div id="galerie" class="gallery-row">
           <h2>Schau mal Wohnung<br />bevor Sie abreisen</h2>
           <div class="gallery-grid">
-            <div class="gallery-preview">
-              <img class="gallery-preview" src="images/apartman-tisa-dum.jpeg" alt="Blick auf das Haus, in dem sich die Ferienwohnung Tisá mit der Referenznummer 546 befindet" />
-            </div>
-            <div class="gallery-preview">
-              <img class="gallery-preview" src="images/apartman-tisa-koupelna.jpeg" alt="Sauberes Badezimmer in der Unterkunft" />
-            </div>
-            <div class="gallery-preview">
-              <img class="gallery-preview" src="images/apartman-tisa-obyvaci-mistnost.jpeg" alt="Blick in einen Raum mit Küche" />
-            </div>
-            <div class="gallery-preview">
-              <img class="gallery-preview" src="images/apartman-tisa-zahrada.jpg" alt="Eingezäuntes Grundstück mit Garten" />
-            </div>
-            <div class="gallery-preview">
-              <img class="gallery-preview" src="images/apartman-tisa-loznice-postel.jpeg" alt="Ein Bett im Schlafzimmer der Tisá-Wohnung" />
-            </div>
-            <div class="gallery-preview">
-              <img class="gallery-preview" src="images/tiske-steny.jpeg" alt="Blick auf die Tiske-Mauern vom Massiv der Malé-Tiské-Mauern" />
-            </div>
+            <div class="gallery-preview"><img src="images/apartman-tisa-dum.jpeg" alt="Blick auf das Haus, in dem sich die Ferienwohnung Tisá mit der Referenznummer 546 befindet"></div>
+            <div class="gallery-preview"><img src="images/apartman-tisa-koupelna.jpeg" alt="Sauberes Badezimmer in der Unterkunft"></div>
+            <div class="gallery-preview"><img src="images/apartman-tisa-obyvaci-mistnost.jpeg" alt="Blick in einen Raum mit Küche"></div>
+            <div class="gallery-preview"><img src="images/apartman-tisa-zahrada.jpg" alt="Eingezäuntes Grundstück mit Garten"></div>
+            <div class="gallery-preview"><img src="images/apartman-tisa-loznice-postel.jpeg" alt="Ein Bett im Schlafzimmer der Tisá-Wohnung"></div>
+            <div class="gallery-preview"><img src="images/tiske-steny.jpeg" alt="Blick auf die Tiske-Mauern vom Massiv der Malé-Tiské-Mauern"></div>
           </div>
         </div>
+    
+        <div class="lightbox" id="lightbox">
+          <span class="close" onclick="closeLightbox()">&times;</span>
+          <span class="prev" onclick="changeSlide(-1)">&#10094;</span>
+          <img id="lightbox-img" src="">
+          <div class="caption" id="lightbox-caption"></div>
+          <span class="next" onclick="changeSlide(1)">&#10095;</span>
+      </div>
         <!--
         <div class="cta-button-row">
           <a class="reservation-link" href="https://www.airbnb.com/rooms/572120027024361949?guests=1&adults=1&s=67&unique_share_id=9e2d73b4-c3c4-4c14-b3eb-9cd3c08f8f5a" rel="nofollow" target="_blank">
@@ -249,7 +248,10 @@
       <div class="footer">
         <div class="footer-content">
           <p>
-            &#169; 2023 Apartmán - Tisá 546, 403 36 Tisá, <a href="/cookies" rel="nofollow">Cookies</a>
+            &#169; <script>
+              var CurrentYear = new Date().getFullYear()
+              document.write(CurrentYear)
+          </script> Apartmán - Tisá 546, 403 36 Tisá, <a href="/cookies" rel="nofollow">Cookies</a>
           </p>
         </div>
       </div>

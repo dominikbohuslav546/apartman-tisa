@@ -170,26 +170,53 @@
         <div id="galerie" class="gallery-row">
           <h2>Prohlédněte si<br />apartmán než vyrazíte</h2>
           <div class="gallery-grid">
-            <div class="gallery-preview">
-              <img class="gallery-preview" src="images/apartman-tisa-dum.jpeg" alt="Pohled na dům, kde se nachází apartmán Tisá s číslem popisným 546" />
-            </div>
-            <div class="gallery-preview">
-              <img class="gallery-preview" src="images/apartman-tisa-koupelna.jpeg" alt="Čistá koupelna v ubytovacím zařízení" />
-            </div>
-            <div class="gallery-preview">
-              <img class="gallery-preview" src="images/apartman-tisa-obyvaci-mistnost.jpeg" alt="Pohled na pokoj s kuchyňkou" />
-            </div>
-            <div class="gallery-preview">
-              <img class="gallery-preview" src="images/apartman-tisa-zahrada.jpg" alt="Oplocený pozemek se zahradou" />
-            </div>
-            <div class="gallery-preview">
-              <img class="gallery-preview" src="images/apartman-tisa-loznice-postel.jpeg" alt="Postel v ložnici v apartmánu Tisá" />
-            </div>
-            <div class="gallery-preview">
-              <img class="gallery-preview" src="images/tiske-steny.jpeg" alt="Pohled na Tiské stěny z masivu Malých Tiských stěn" />
-            </div>
-          </div>
+            <div class="gallery-preview"><img src="images/apartman-tisa-dum.jpeg" alt="Pohled na dům"></div>
+            <div class="gallery-preview"><img src="images/apartman-tisa-koupelna.jpeg" alt="Čistá koupelna"></div>
+            <div class="gallery-preview"><img src="images/apartman-tisa-obyvaci-mistnost.jpeg" alt="Pokoj s kuchyňkou"></div>
+            <div class="gallery-preview"><img src="images/apartman-tisa-zahrada.jpg" alt="Oplocený pozemek"></div>
+            <div class="gallery-preview"><img src="images/apartman-tisa-loznice-postel.jpeg" alt="Postel v ložnici"></div>
+            <div class="gallery-preview"><img src="images/tiske-steny.jpeg" alt="Tiské stěny"></div>
         </div>
+    
+        <div class="lightbox" id="lightbox">
+            <span class="close" onclick="closeLightbox()">&times;</span>
+            <span class="prev" onclick="changeSlide(-1)">&#10094;</span>
+            <img id="lightbox-img" src="">
+            <span class="next" onclick="changeSlide(1)">&#10095;</span>
+        </div>
+    
+        <script>
+            let images = document.querySelectorAll('.gallery-preview img');
+            let lightbox = document.getElementById('lightbox');
+            let lightboxImg = document.getElementById('lightbox-img');
+            let currentIndex = 0;
+    
+            images.forEach((img, index) => {
+                img.addEventListener('click', () => {
+                    currentIndex = index;
+                    showLightbox();
+                });
+            });
+    
+            function showLightbox() {
+                lightbox.style.display = 'flex';
+                lightboxImg.src = images[currentIndex].src;
+            }
+    
+            function closeLightbox() {
+                lightbox.style.display = 'none';
+            }
+    
+            function changeSlide(direction) {
+                currentIndex += direction;
+                if (currentIndex < 0) {
+                    currentIndex = images.length - 1;
+                } else if (currentIndex >= images.length) {
+                    currentIndex = 0;
+                }
+                lightboxImg.src = images[currentIndex].src;
+            }
+        </script>
         <!--<div class="cta-button-row">
           <a class="reservation-link" href="https://www.airbnb.com/rooms/572120027024361949?guests=1&adults=1&s=67&unique_share_id=9e2d73b4-c3c4-4c14-b3eb-9cd3c08f8f5a" rel="nofollow" target="_blank">
             <p class="cta-button">

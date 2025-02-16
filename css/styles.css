@@ -20,7 +20,16 @@ ul {
   }
   .header-heading {
     margin-left: 20px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
   }
+
+  .header.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
   .background-heading {
     display: none;
   }
@@ -252,6 +261,17 @@ table {
   float: right;
   margin-top: -350px;
   width: 600px;
+  opacity: 0;
+  animation: fadeIn 1.5s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
 }
 
 .background-heading {
@@ -311,6 +331,14 @@ table {
   grid-template-columns: 1fr 1fr 1fr;
   justify-content: space-evenly;
   justify-items: center;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.equipment-grid.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .gallery-grid {
@@ -324,6 +352,14 @@ table {
 .surroundings-grid {
   display: grid;
   grid-template-columns: 1.5fr 2.5fr;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.surroundings-grid.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .surroungins-grid-item {
@@ -451,6 +487,14 @@ table {
 
 .contact-row {
   margin-top: 100px;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.contact-row.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .table-contact {
